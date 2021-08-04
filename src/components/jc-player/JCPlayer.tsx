@@ -1,8 +1,11 @@
-import React from "react";
+// import React from "react";
+import PlayerContainer from './PlayerContainer'
 
 const JCPlayer = () => {
   return (
-    <div>Hi</div>
+    <div>
+      <PlayerContainer/>
+    </div>
   )
 }
 
