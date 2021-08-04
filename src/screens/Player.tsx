@@ -1,8 +1,11 @@
 import React from "react";
+import {JCPlayer} from '../components/jc-player'
 
 const Player = () => {
   return (
-    <div>Hello</div>
+    <div>
+      <JCPlayer/>
+    </div>
   )
 }
 
