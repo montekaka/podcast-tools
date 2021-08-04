@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from "react-router";
+import { createBrowserHistory } from "history";
+import {setNavigator} from '../src/libs'
 import './index.css';
 import App from './App';
+import { Provider } from 'jotai'
 import reportWebVitals from './reportWebVitals';
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={history} ref={() => {setNavigator(history)} }>
+      <Provider>
+        <App />
+      </Provider>
+    </Router>    
   </React.StrictMode>,
   document.getElementById('root')
 );
