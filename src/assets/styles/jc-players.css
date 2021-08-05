@@ -45,10 +45,35 @@
   white-space: nowrap;
 }
 
+.player-control {
+  display: grid;
+  grid-template-columns: 120px auto;
+}
+
+.player-control > .controls {
+  background-color: burlywood;
+}
+
+.player-control > .controls > .play-pause-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 40px;
+  /* background-color: blanchedalmond; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-control > .controls > .play-pause-button > .icon{
+  width: 0.6em;
+  height: 0.6em;
+}
+
 @media (max-width: 500px) {
   .jc-player-container {
     grid-template-columns: auto;
-    grid-auto-rows: 260px 100px;
+    grid-auto-rows: 260px 300px;
   }
 
   .jc-player-container > .metas > .title {
@@ -63,5 +88,12 @@
     width: 220px;
     height: 220px;
     border-radius: 14px;
+  }  
+
+  .player-control > .controls > .play-pause-button {
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    border-radius: 100px;
   }  
 }
