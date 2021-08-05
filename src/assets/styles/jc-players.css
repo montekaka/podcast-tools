@@ -1,7 +1,7 @@
 .jc-player-container {
   display: grid;
   background-color: aqua;
-  grid-template-columns: 140px auto;  
+  grid-template-columns: 140px auto;
   grid-auto-rows: 160px;
 }
 
@@ -11,6 +11,29 @@
 
 .jc-player-container > .metas {
   background-color: beige;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 800;  
+  display: grid;
+  grid-template-rows: 30px auto;
+  padding: 10px;
+}
+
+
+.jc-player-container > .metas > .title{
+  font-size: 1em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  white-space: nowrap;  
+}
+
+.jc-player-container > .metas > .subtitle{
+  font-size: 0.7em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 500px) {
@@ -18,4 +41,12 @@
     grid-template-columns: auto;
     grid-auto-rows: 160px 100px;
   }
+
+  .jc-player-container > .metas > .title {
+    text-align: center;
+  }
+
+  .jc-player-container > .metas > .subtitle {
+    text-align: center;
+  }  
 }
