@@ -1,6 +1,6 @@
 const Metas = () => {
   return (
-    <div>
+    <div className="metas">
       <div>Title</div>
     </div>
   )

@@ -1,3 +1,21 @@
 .jc-player-container {
-  display: flex;
+  display: grid;
+  background-color: aqua;
+  grid-template-columns: 140px auto;  
+  grid-auto-rows: 160px;
+}
+
+.jc-player-container > .artwork {
+  background-color: blanchedalmond;
+}
+
+.jc-player-container > .metas {
+  background-color: beige;
+}
+
+@media (max-width: 500px) {
+  .jc-player-container {
+    grid-template-columns: auto;
+    grid-auto-rows: 160px 100px;
+  }
 }

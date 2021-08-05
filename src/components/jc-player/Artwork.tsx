@@ -2,7 +2,7 @@ import React from "react";
 
 const Artwork = () => {
   return (
-    <div>Image</div>
+    <div className="artwork">Image</div>
   )
 }
 
