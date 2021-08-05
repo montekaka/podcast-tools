@@ -2,9 +2,9 @@ import {RotateCcw} from 'react-feather'
 
 const ProgressBackward = () => {
   return (
-    <div>
-      <RotateCcw/>
-      <span>5</span>
+    <div className="progress-control">
+      <RotateCcw className="icon"/>
+      <div className="label">5</div>
     </div>
   )
 }
