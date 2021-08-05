@@ -1,12 +1,21 @@
 .jc-player-container {
   display: grid;
   background-color: aqua;
-  grid-template-columns: 140px auto;
+  grid-template-columns: 160px auto;
   grid-auto-rows: 160px;
 }
 
 .jc-player-container > .artwork {
   background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.jc-player-container > .artwork > .artwork-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
 }
 
 .jc-player-container > .metas {
@@ -39,7 +48,7 @@
 @media (max-width: 500px) {
   .jc-player-container {
     grid-template-columns: auto;
-    grid-auto-rows: 160px 100px;
+    grid-auto-rows: 260px 100px;
   }
 
   .jc-player-container > .metas > .title {
@@ -48,5 +57,11 @@
 
   .jc-player-container > .metas > .subtitle {
     text-align: center;
+  }  
+
+  .jc-player-container > .artwork > .artwork-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 14px;
   }  
 }
