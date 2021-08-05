@@ -1,12 +1,12 @@
 .jc-player-container {
   display: grid;
-  background-color: aqua;
+  background-color: hotpink;
   grid-template-columns: 160px auto;
   grid-auto-rows: 160px;
 }
 
 .jc-player-container > .artwork {
-  background-color: blanchedalmond;
+  /* background-color: blanchedalmond; */
   display: flex;
   justify-content: center;
   align-items: center;  
@@ -19,7 +19,7 @@
 }
 
 .jc-player-container > .metas {
-  background-color: beige;
+  /* background-color: beige; */
   font-size: 20px;
   line-height: 22px;
   font-weight: 800;  
@@ -47,13 +47,12 @@
 
 .player-control {
   display: grid;
+  /* background-color: black; */
   grid-template-columns: 100px auto;
 }
 
 .player-control > .controls {
-  /* background-color: burlywood; */
   display: flex;
-  /* align-content: space-between; */
   justify-content: space-around;
   align-items: center;    
 }
@@ -93,12 +92,22 @@
 
 .player-control > .progress-bar {
   background-color: aqua;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-control > .progress-bar > .progress-time {
+  display: flex;  
+  justify-content: space-between;
+  font-size: 0.6em;
 }
 
 @media (max-width: 500px) {
   .jc-player-container {
     grid-template-columns: auto;
-    grid-auto-rows: 260px 300px;
+    grid-auto-rows: 260px 400px;
   }
 
   .jc-player-container > .metas > .title {
@@ -118,6 +127,7 @@
   .player-control {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }  
 
   .player-control > .controls > .play-pause-button {
