@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom';
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
@@ -14,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router history={history} ref={() => {setNavigator(history)} }>
       <JotaiProvider>
+        <Suspense fallback={<h2>Loading...</h2>}>
         <App />
+        </Suspense>
       </JotaiProvider>
     </Router>    
   </React.StrictMode>,

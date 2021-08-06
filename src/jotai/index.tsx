@@ -1,5 +1,6 @@
-import {podcastRssAtom} from './podcastAtom'
+import {podcastRssAtom, episodesAtom} from './podcastAtom'
 
 export {
-  podcastRssAtom
+  podcastRssAtom,
+  episodesAtom
 }

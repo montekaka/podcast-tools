@@ -1,13 +1,16 @@
 import React, {useEffect} from "react";
 import {useAtom} from 'jotai'
-import {podcastRssAtom} from '../jotai'
+import {podcastRssAtom, episodesAtom} from '../jotai'
 import {JCPlayer} from '../components/jc-player'
 
 const Player = () => {
-  const [rssFeed, rssFeedSet] = useAtom(podcastRssAtom)
+  const [rssFeed, rssFeedSet] = useAtom(podcastRssAtom);
+  const [episodes] = useAtom(episodesAtom);
+
   
   useEffect(() => {
-    rssFeedSet("https://download.randgad.com/feed.xml")
+    rssFeedSet("https://feed.justcast.com/shows/readcast/audioposts.rss")
+    // rssFeedSet("https://feed.justcast.com/shows/jia-chen-chinaconscience/audioposts.rss")
   }, [])
   
   return (
