@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 import {setNavigator} from '../src/libs'
 import './index.css';
 import App from './App';
-import { Provider } from 'jotai'
+import { Provider as JotaiProvider} from 'jotai'
 import reportWebVitals from './reportWebVitals';
 
 const history = createBrowserHistory();
@@ -13,9 +13,9 @@ const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history} ref={() => {setNavigator(history)} }>
-      <Provider>
+      <JotaiProvider>
         <App />
-      </Provider>
+      </JotaiProvider>
     </Router>    
   </React.StrictMode>,
   document.getElementById('root')
