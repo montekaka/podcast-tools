@@ -39,14 +39,19 @@
   display: grid;
   background-color: hotpink;
   grid-template-columns: 160px auto;
-  grid-auto-rows: 160px;
+  grid-template-rows: 80px 80px 80px;
+  grid-template-areas: 
+  "artwork metas"
+  "artwork player-controls"
+  ". chapters";
 }
 
 .jc-player-container > .artwork {
   /* background-color: blanchedalmond; */
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+  grid-area: artwork;
 }
 
 .jc-player-container > .artwork > .artwork-image {
@@ -63,6 +68,7 @@
   display: grid;
   grid-template-rows: 30px auto;
   padding: 10px;
+  grid-area: metas;
 }
 
 
@@ -86,6 +92,7 @@
   display: grid;
   /* background-color: black; */
   grid-template-columns: 100px auto;
+  grid-area: player-controls;
 }
 
 .player-control > .controls {
@@ -116,14 +123,19 @@
   height: 20px;
   font-size: 20px; 
   display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-template-areas: "a"
 }
 
 .player-control > .controls > .progress-control > .icon{
-  grid-area: 1/1; 
+  /* grid-area: 1/1;  */
+  grid-area: a;
 }
 
 .player-control > .controls > .progress-control > .label{
-  grid-area: 1/1;
+  grid-area: a;
   text-align: center;
   font-size: 0.5em;
 }

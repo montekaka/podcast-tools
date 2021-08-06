@@ -6,9 +6,8 @@ const PlayerContainer = () => {
   return (
     <div className="jc-player-container">
       <Artwork/>
-      <Metas>
-        <PlayerControl/>
-      </Metas>
+      <Metas/>        
+      <PlayerControl/>
     </div>
   )
 }
