@@ -1,6 +1,7 @@
 import Metas from './Metas'
 import Artwork from './Artwork';
 import PlayerControl from './PlayerControl'
+import ChaptersList from './ChaptersList'
 
 const PlayerContainer = () => {
   return (
@@ -8,7 +9,7 @@ const PlayerContainer = () => {
       <Artwork/>
       <Metas/>        
       <PlayerControl/>
-      <div className="chapters"></div>
+      <ChaptersList/>
     </div>
   )
 }
