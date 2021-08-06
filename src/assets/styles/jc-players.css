@@ -5,7 +5,9 @@
   line-height: 16px;  
   font-weight: 500;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px;  
+  max-height: 400px;
+  overflow: scroll;
 }
 
 .jc-player-wrapper > .episodes-list > .item {
@@ -190,6 +192,7 @@
 
   .jc-player-wrapper > .episodes-list {
     height: 300px;
+    overflow: scroll;
   }
   
 }
