@@ -43,7 +43,7 @@
   grid-template-areas: 
   "artwork metas"
   "artwork player-controls"
-  ". chapters";
+  "chapters chapters";
 }
 
 .jc-player-container > .artwork {
@@ -86,6 +86,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.jc-player-container > .chapters {
+  grid-area: chapters;
+  padding: 10px;
 }
 
 .player-control {
@@ -211,8 +216,15 @@
 
 @media (max-width: 500px) {
   .jc-player-container {
+    padding: 20px;
     grid-template-columns: auto;
-    grid-auto-rows: 260px 400px;
+    /* grid-template-rows: 260px 400px; */
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "artwork"
+    "metas"
+    "player-controls"    
+    "chapters";    
   }
 
   .jc-player-container > .metas > .title {

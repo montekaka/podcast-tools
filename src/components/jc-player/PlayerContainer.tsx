@@ -8,6 +8,7 @@ const PlayerContainer = () => {
       <Artwork/>
       <Metas/>        
       <PlayerControl/>
+      <div className="chapters"></div>
     </div>
   )
 }
