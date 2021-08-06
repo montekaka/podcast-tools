@@ -1,8 +1,36 @@
 
 .jc-player-wrapper > .episodes-list {
-  height: 300px;
-  /* width: 100px; */
-  background-color: black;
+  background-color: #30343c;
+  font-size: 14px;
+  line-height: 16px;  
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.jc-player-wrapper > .episodes-list > .item {
+  /* margin: 5px; */
+  padding: 10px;
+  color: white;
+  display: grid;
+  grid-template-rows: 20px auto;  
+  border-radius: 10px;
+  /* opacity: 0; */
+}
+
+.jc-player-wrapper > .episodes-list > .item:hover {
+  background-color: rgba(0,0,0,.5);
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;  
+  /* border-style: 1px; */
+}
+
+.jc-player-wrapper > .episodes-list > .item > .title {
+  font-size: 0.9em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .jc-player-container {
@@ -29,7 +57,7 @@
   /* background-color: beige; */
   font-size: 20px;
   line-height: 22px;
-  font-weight: 800;  
+  font-weight: 800;
   display: grid;
   grid-template-rows: 30px auto;
   padding: 10px;
@@ -154,11 +182,16 @@
   cursor: pointer;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .jc-player-wrapper {
     display: grid;
-    grid-template-columns: 600px auto;
+    grid-template-columns: 680px auto;
   }
+
+  .jc-player-wrapper > .episodes-list {
+    height: 300px;
+  }
+  
 }
 
 @media (max-width: 500px) {

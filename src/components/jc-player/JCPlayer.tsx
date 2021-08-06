@@ -1,12 +1,12 @@
 // import React from "react";
 import PlayerContainer from './PlayerContainer'
-import EpisodesList from './EpisodesList'
+import EpisodeList from './EpisodeList'
 
 const JCPlayer = () => {
   return (
     <div className="jc-player-wrapper">
       <PlayerContainer/>
-      <EpisodesList/>
+      <EpisodeList/>
     </div>
   )
 }
