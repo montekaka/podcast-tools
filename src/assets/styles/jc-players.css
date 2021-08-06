@@ -17,6 +17,7 @@
   display: grid;
   grid-template-rows: 20px auto;  
   border-radius: 10px;
+  /* border-bottom: 1px solid #e3e3e3; */
   /* opacity: 0; */
 }
 
@@ -44,7 +45,7 @@
   grid-template-areas: 
   "artwork metas"
   "artwork player-controls"
-  ". chapters";
+  "chapters chapters";
 }
 
 .jc-player-container > .artwork {
@@ -204,7 +205,7 @@
 .player-control > .progress-bar > .progress-time {
   display: flex;  
   justify-content: space-between;
-  font-size: 0.6em;
+  font-size: 0.8em;
 }
 
 .player-control > .progress-bar > .slide-container {
