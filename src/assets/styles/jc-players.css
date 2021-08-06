@@ -172,7 +172,8 @@
 .player-control > .controls > .progress-control {
   width: 20px;
   height: 20px;
-  font-size: 20px;   
+  font-size: 20px; 
+  display: grid;
   cursor: pointer;
   justify-content: center;
   align-content: center;
