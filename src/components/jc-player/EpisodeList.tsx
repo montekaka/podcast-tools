@@ -8,7 +8,13 @@ const EpisodeList = () => {
   const [, updatePlayer] = useAtom(updatePlayerAtom);
 
   const handleClick = (idx:number) => {
-    updatePlayer({playingId: idx, playing: true, onReady: false})
+    updatePlayer({
+      playingId: idx, 
+      // durationSeconds: 0,
+      playedSeconds: 0,
+      playing: true, 
+      onReady: false
+    })
   }
 
   return (
