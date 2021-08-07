@@ -1,11 +1,12 @@
 import { useState } from "react";
-
+import {useAtom} from "jotai"
+import { playerAtom } from '../../jotai'
 import PlayPauseButton from "./PlayPauseButton";
 import ProgressBackward from './ProgressBackward'
 import ProgressForward from './ProgressForward'
 
 const PlayerControl = () => {
-
+  const [playerState] = useAtom(playerAtom);
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const [playedPercentage, setPlayedPercentage] = useState("0");
 
@@ -19,16 +20,16 @@ const PlayerControl = () => {
       </div>
       <div className="progress-bar">
         <div className="progress-time">
-          <div className="time">{playedSeconds}</div>
-          <div className="time">00:22:33</div>
+          <div className="time">{playerState.playedSeconds}</div>
+          <div className="time">{playerState.durationSeconds}</div>
         </div>
         <div className="slide-container">
           <input 
             type="range" 
-            min={1} 
-            max={100} 
+            min={0} 
+            max={playerState.durationSeconds} 
             step={0.01}
-            value={playedSeconds}
+            value={playerState.playedSeconds}
             onChange={(e) => {
               setPlayedSeconds(Number(e.target.value))
               setPlayedPercentage(e.target.value);
