@@ -13,7 +13,7 @@ const parser: Parser = new Parser({
 //   title: string;
 // }
 
-type Episode = {
+export interface Episode {
   title: string;
   artworkUrl: string;
   pubDate: Date;
