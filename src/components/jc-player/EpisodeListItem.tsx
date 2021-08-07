@@ -1,3 +1,5 @@
+import {format} from 'date-fns'
+
 const EpisodeListItem = (props:any) => {
   const {pubDate, id, title, onClick} = props;
 
@@ -6,7 +8,7 @@ const EpisodeListItem = (props:any) => {
       onClick(id);
     }}>
       <div className="subtitle">        
-        <div>{pubDate}</div>
+        <div>{format(new Date(pubDate), 'MM/dd/yyyy')}</div>
       </div>
       <div className="title">{title}</div>
     </div>

@@ -37,6 +37,12 @@
   overflow: hidden;
 }
 
+
+.jc-player-wrapper > .episodes-list > .item > .subtitle {
+  font-size: 0.6em;
+}
+
+
 .jc-player-container {
   display: grid;
   background-color: hotpink;
