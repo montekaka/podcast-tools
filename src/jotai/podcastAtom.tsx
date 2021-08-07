@@ -24,7 +24,7 @@ type Episode = {
 }
 
 export const podcastRssAtom = atom<string>("");
-export const episodesAtom = atom<any[]>(async (get) => {
+export const episodesAtom = atom<Episode[]>(async (get) => {
   const rss = get(podcastRssAtom);
   if(rss) {
     try {
