@@ -1,11 +1,10 @@
-import { useState } from "react";
+
 import {RotateCcw, RotateCw} from 'react-feather'
 import {useAtom} from "jotai"
 import { playerAtom, updatePlayerAtom, updatePlayedTimeAtom} from '../../jotai'
 import PlayPauseButton from "./PlayPauseButton";
-import ProgressBackward from './ProgressBackward'
-import ProgressForward from './ProgressForward'
 import ProgressChangeButton from './ProgressChangeButton'
+import {getHHMMSSFromSeconds} from '../../libs'
 
 const PlayerControl = () => {
   const [playerState] = useAtom(playerAtom);
@@ -47,8 +46,8 @@ const PlayerControl = () => {
       </div>
       <div className="progress-bar">
         <div className="progress-time">
-          <div className="time">{playedSeconds}</div>
-          <div className="time">{durationSeconds}</div>
+          <div className="time">{getHHMMSSFromSeconds(playedSeconds)}</div>
+          <div className="time">{getHHMMSSFromSeconds(durationSeconds)}</div>
         </div>
         <div className="slide-container">
           <input 

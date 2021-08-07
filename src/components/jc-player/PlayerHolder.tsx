@@ -32,6 +32,9 @@ const PlayerHolder = () => {
             })
           }
         }}
+        onError={(err) =>{ 
+          console.log('can not load', err)
+        }}        
         playing={playerState.playing}     
       />
     )
