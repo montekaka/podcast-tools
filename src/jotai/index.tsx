@@ -2,7 +2,8 @@ import {podcastRssAtom, episodesAtom} from './podcastAtom'
 import {initPlayerAtom,
   togglePlayPauseAtom, 
   playerAtom, 
-  updatePlayerAtom
+  updatePlayerAtom,
+  updatePlayedTimeAtom
 } from './playerAtom'
 
 export {
@@ -11,5 +12,6 @@ export {
   initPlayerAtom,
   playerAtom,
   updatePlayerAtom,
-  togglePlayPauseAtom
+  togglePlayPauseAtom,
+  updatePlayedTimeAtom
 }

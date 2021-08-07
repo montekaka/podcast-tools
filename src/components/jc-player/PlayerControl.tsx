@@ -1,53 +1,76 @@
 import { useState } from "react";
+import {RotateCcw, RotateCw} from 'react-feather'
 import {useAtom} from "jotai"
-import { playerAtom, updatePlayerAtom } from '../../jotai'
+import { playerAtom, updatePlayerAtom, updatePlayedTimeAtom} from '../../jotai'
 import PlayPauseButton from "./PlayPauseButton";
 import ProgressBackward from './ProgressBackward'
 import ProgressForward from './ProgressForward'
+import ProgressChangeButton from './ProgressChangeButton'
 
 const PlayerControl = () => {
   const [playerState] = useAtom(playerAtom);
   const [, updatePlayer] = useAtom(updatePlayerAtom);
-  const [playedSeconds, setPlayedSeconds] = useState(0);
-  const [playedPercentage, setPlayedPercentage] = useState("0");
+  const {durationSeconds, playedSeconds, playerRef} = playerState;
+  const [, updatePlayedTime] = useAtom(updatePlayedTimeAtom)
+
+  // const handleProgressChange = (seconds: number) => {
+  //   let playedSeconds = seconds;
+  //   if(seconds >= durationSeconds) {
+  //     playedSeconds = durationSeconds;
+  //   } else if (seconds <= 0 ){
+  //     playedSeconds = 0;
+  //   }
+  //   playerRef.seekTo = playedSeconds;
+  // }
 
   return (
     <div className="player-control">
       {/* <Camera style={{color: '#ACDAF5'}}/> */}
       <div className="controls">
-        <ProgressBackward/>
-        <PlayPauseButton/>        
-        <ProgressForward/>
+        <ProgressChangeButton label="5" 
+          onClick={() => {
+            updatePlayedTime(playedSeconds-5)
+          }}
+        >
+          <RotateCcw className="icon"/>
+        </ProgressChangeButton> 
+        <PlayPauseButton/>
+        <ProgressChangeButton label="30"
+          onClick={() => {
+            updatePlayedTime(playedSeconds+30)
+          }}        
+        >
+          <RotateCw className="icon"/>
+        </ProgressChangeButton>                                
+        {/* <ProgressBackward/>
+        <ProgressForward/> */}
       </div>
       <div className="progress-bar">
         <div className="progress-time">
-          <div className="time">{playerState.playedSeconds}</div>
-          <div className="time">{playerState.durationSeconds}</div>
+          <div className="time">{playedSeconds}</div>
+          <div className="time">{durationSeconds}</div>
         </div>
         <div className="slide-container">
           <input 
             type="range" 
             min={0} 
-            max={playerState.durationSeconds} 
+            max={durationSeconds} 
             step={0.01}
-            value={playerState.playedSeconds}
+            value={playedSeconds}
             onMouseDown={() => {
               updatePlayer({onSeeking: true})
             }}
             onMouseUp={() => {
-              playerState.playerRef.seekTo(playerState.playedSeconds)
+              playerRef.seekTo(playedSeconds)
               updatePlayer({onSeeking: false})
             }}
             onChange={(e) => {
-              // playerState.playerRef.seekTo(Number(e.target.value))
               updatePlayer({playedSeconds: Number(e.target.value)})
-              // setPlayedSeconds(Number(e.target.value))
-              // setPlayedPercentage(e.target.value);
             }}
             className="slider"
             id="time-progress-bar"
             style={{
-              background: `linear-gradient(90deg, rgb(117, 252, 117) ${playedPercentage}%, rgb(214, 214, 214) ${playedPercentage}% )`
+              background: `linear-gradient(90deg, rgb(117, 252, 117) ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}%, rgb(214, 214, 214) ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}% )`
             }}
           />
         </div>

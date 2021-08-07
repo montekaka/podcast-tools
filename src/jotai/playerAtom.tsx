@@ -65,4 +65,17 @@ export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, _)
   set(playerAtom, {...currentState, playing: !playing});
 })
 
+export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, seconds: number) => {
+  const currentState = _get(playerAtom);;
+  const {durationSeconds, playerRef} = currentState
+  let playedSeconds = seconds;
+  if(seconds >= durationSeconds) {
+    playedSeconds = durationSeconds;
+  } else if (seconds <= 0 ){
+    playedSeconds = 0;
+  }
+  playerRef.seekTo(playedSeconds);
+  set(playerAtom, {...currentState, playedSeconds});
+})
+
 export {}
