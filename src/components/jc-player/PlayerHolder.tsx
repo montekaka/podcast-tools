@@ -18,8 +18,10 @@ const PlayerHolder = () => {
         height={"0"}
         width={"0"}    
         onProgress={(res) => {
-          const playedSeconds = res.playedSeconds;
-          updatePlayer({playedSeconds})
+          if(playerState.onSeeking === false) {
+            const playedSeconds = res.playedSeconds;
+            updatePlayer({playedSeconds})
+          }
         }}
         onReady={(res) => {
           if(res) {
