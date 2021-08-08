@@ -12,7 +12,7 @@ const Player = () => {
 
   useEffect(() => {
     rssFeedSet("https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss")
-    // rssFeedSet("https://feed.justcast.com/shows/jia-chen-chinaconscience/audioposts.rss")
+    // rssFeedSet("https://feed.justcast.com/shows/readcast/audioposts.rss")
   }, [])
   
   return (

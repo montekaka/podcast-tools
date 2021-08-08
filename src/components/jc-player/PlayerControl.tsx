@@ -5,6 +5,7 @@ import { playerAtom, updatePlayerAtom, updatePlayedTimeAtom, playerSkinAtom} fro
 import PlayPauseButton from "./PlayPauseButton";
 import ProgressChangeButton from './ProgressChangeButton'
 import {getHHMMSSFromSeconds} from '../../libs'
+// import styled, {css} from 'styled-components';
 
 const PlayerControl = () => {
   const [playerState] = useAtom(playerAtom);
@@ -80,7 +81,7 @@ const PlayerControl = () => {
             className="slider"
             id="time-progress-bar"
             style={{
-              background: `linear-gradient(90deg, ${playerSkin.progressBarColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}%, ${playerSkin.primaryTextColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}% )`
+              background: `linear-gradient(90deg, ${playerSkin.progressBarFilledColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}%, ${playerSkin.progressBarBackgroundColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}% )`
             }}
           />
         </div>

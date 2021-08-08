@@ -1,5 +1,10 @@
 import {useAtom} from "jotai"
-import { episodesAtom, updatePlayerAtom, updatePlayingIdAtom} from '../../jotai'
+import { 
+  episodesAtom, 
+  updatePlayerAtom, 
+  updatePlayingIdAtom, 
+  playerSkinAtom,
+} from '../../jotai'
 import EpisodeListItem from './EpisodeListItem'
 
 const EpisodeList = () => {
@@ -7,6 +12,7 @@ const EpisodeList = () => {
   const [episodes] = useAtom(episodesAtom);
   const [, updatePlayer] = useAtom(updatePlayerAtom);
   const [, updatePlayingId] = useAtom(updatePlayingIdAtom);
+  const [playerSkin] = useAtom(playerSkinAtom)
 
   const handleClick = (idx:number) => {
     updatePlayer({
@@ -20,7 +26,11 @@ const EpisodeList = () => {
   }
 
   return (
-    <div className="episodes-list">
+    <div className="episodes-list" style={{
+      // background: `linear-gradient(0deg, ${playerSkin.primaryBackgroundColor} ,${playerSkin.primaryBackgroundColor} 54px)`,
+      backgroundColor: playerSkin.playlistBackgroundColor,
+      color: playerSkin.playlistTextColor
+    }}>
       {
         episodes.map((item:any, idx: number) => {
           return <EpisodeListItem key={(idx+1).toString()}

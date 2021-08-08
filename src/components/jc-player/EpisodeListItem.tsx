@@ -6,7 +6,8 @@ const EpisodeListItem = (props:any) => {
   return (
     <div className="item" onClick={() => {
       onClick(id);
-    }}>
+      }}
+    >
       <div className="subtitle">        
         <div>{format(new Date(pubDate), 'MM/dd/yyyy')}</div>
       </div>

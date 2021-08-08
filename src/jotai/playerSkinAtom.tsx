@@ -4,8 +4,8 @@ export interface PlayerSkin {
   primaryBackgroundColor: string;
   primaryButtonColor: string;
   primaryTextColor: string;
-  progressBarColor: string;
-  progressBarThumbColor: string;
+  progressBarBackgroundColor: string;
+  progressBarFilledColor: string;
   playlistBackgroundColor?: string;
   playlistTextColor?: string;
   chapterBackgroundColor?: string;
@@ -15,11 +15,17 @@ export interface PlayerSkin {
 export const playerSkinAtom = atom<PlayerSkin>({
   primaryBackgroundColor: "#3B1F50",
   primaryButtonColor: "#D933C3",
-  primaryTextColor: "#ffffff",
-  progressBarColor: "#D933C3",
-  progressBarThumbColor: "#02030A",
-  // playlistBackgroundColor?: null,
-  // playlistTextColor?: "#6D5938",
-  // chapterBackgroundColor?: string;
-  // chapterTextColor?: string;
+  primaryTextColor: "#f7f8f9",
+  progressBarFilledColor: "#D933C3",
+  progressBarBackgroundColor: "#8A8175",
+  // progressBarThumbColor: "#02030A",
+  playlistBackgroundColor: "#522657",
+  playlistTextColor: "#f7f8f9",
+  chapterBackgroundColor: "#522657",
+  chapterTextColor:  "#f7f8f9"
 });
+
+// export const getPlaylistColorAtom = atom((get) => {
+//   const {primaryBackgroundColor} = get(playerSkinAtom);
+//   return chroma(primaryBackgroundColor);
+// }) 

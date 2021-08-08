@@ -9,11 +9,11 @@ import {
   playerAtom, 
   updatePlayerAtom,
   updatePlayedTimeAtom,
-  updatePlayingIdAtom
+  updatePlayingIdAtom,
 } from './playerAtom'
 
 import {
-  playerSkinAtom
+  playerSkinAtom,
 } from './playerSkinAtom'
 
 export {
