@@ -24,6 +24,8 @@ export const playerAtom = atom<Player>({
   playerRef: null
 })
 
+export const playingIdAtom = atom(-1);
+
 export const initPlayerAtom = atom<Player>((get) => {
   const items = get(episodesAtom);
   if(items.length > 0) {

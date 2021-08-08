@@ -17,6 +17,7 @@
   display: grid;
   grid-template-rows: 20px auto;  
   border-radius: 10px;
+  height: 60px;
   /* border-bottom: 1px solid #e3e3e3; */
   /* opacity: 0; */
 }
