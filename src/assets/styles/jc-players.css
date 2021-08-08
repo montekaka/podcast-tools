@@ -1,6 +1,6 @@
 
 .jc-player-wrapper > .episodes-list {
-  background-color: #30343c;
+  /* background-color: #30343c; */
   font-size: 14px;
   line-height: 16px;  
   font-weight: 500;
@@ -13,7 +13,7 @@
 .jc-player-wrapper > .episodes-list > .item {
   /* margin: 5px; */
   padding: 10px;
-  color: white;
+  /* color: white; */
   display: grid;
   grid-template-rows: 20px auto;  
   border-radius: 10px;
@@ -23,7 +23,7 @@
 }
 
 .jc-player-wrapper > .episodes-list > .item:hover {
-  background-color: rgba(0,0,0,.5);
+  /* background-color: rgba(0,0,0,.5); */
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;  
   transform: scale(1.04);
@@ -49,7 +49,7 @@
 
 .jc-player-container {
   display: grid;
-  background-color: hotpink;
+  /* background-color: hotpink; */
   grid-template-columns: 160px auto;
   grid-template-rows: 80px 80px auto;
   grid-template-areas: 
@@ -123,8 +123,8 @@
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
-  background-color: #58564F;
-  color: yellow;
+  /* background-color: #58564F; */
+  /* color: yellow; */
   justify-content: space-between;
   align-content: space-between;
   cursor: pointer;
@@ -232,7 +232,7 @@
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 8px;
-  background: rgba(255,255,255,0.1);
+  /* background: rgba(255,255,255,0.1); */
   /* box-shadow: 0px 1px 10px 1px black; */
 }
 
@@ -245,7 +245,7 @@
   appearance: none;
   width: 12px;
   height: 12px;
-  background: white;
+  /* background: white; */
   border-radius: 50%;
   cursor: pointer;
 }
@@ -254,7 +254,7 @@
 .player-control > .progress-bar > .slide-container > .slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: white;
+  /* background: white; */
   border-radius: 50%;
   cursor: pointer;
 }

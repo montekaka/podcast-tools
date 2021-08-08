@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useAtom} from 'jotai'
-import {podcastRssAtom, episodesAtom, playingIdAtom, chaptersAtom} from '../jotai'
+import {podcastRssAtom, episodesAtom, playingIdAtom, chaptersAtom, playerSkinAtom} from '../jotai'
 import {JCPlayer} from '../components/jc-player'
 
 const Player = () => {
@@ -8,6 +8,7 @@ const Player = () => {
   const [episodes] = useAtom(episodesAtom);
   const [_] = useAtom(playingIdAtom);
   const [chapters] = useAtom(chaptersAtom);
+  const [playerSkin] = useAtom(playerSkinAtom)
 
   useEffect(() => {
     rssFeedSet("https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss")

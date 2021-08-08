@@ -12,6 +12,10 @@ import {
   updatePlayingIdAtom
 } from './playerAtom'
 
+import {
+  playerSkinAtom
+} from './playerSkinAtom'
+
 export {
   chaptersAtom,
   updatePlayingIdAtom,
@@ -22,4 +26,5 @@ export {
   updatePlayerAtom,
   togglePlayPauseAtom,
   updatePlayedTimeAtom,
+  playerSkinAtom
 }
