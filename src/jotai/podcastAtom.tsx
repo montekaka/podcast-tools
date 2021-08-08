@@ -1,5 +1,6 @@
 import {atom} from "jotai"
 import Parser from 'rss-parser';
+import { playerAtom } from "./playerAtom";
 
 const parser: Parser = new Parser({
   customFields: {
@@ -24,6 +25,7 @@ export interface Episode {
 }
 
 export const podcastRssAtom = atom<string>("");
+
 export const episodesAtom = atom<Episode[]>(async (get) => {
   const rss = get(podcastRssAtom);
   if(rss) {

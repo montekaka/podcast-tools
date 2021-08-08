@@ -1,19 +1,21 @@
 import {
   podcastRssAtom, 
   episodesAtom,
-  Episode
 } from './podcastAtom'
-import {initPlayerAtom,
+import {
+  playingIdAtom,
   togglePlayPauseAtom, 
   playerAtom, 
   updatePlayerAtom,
-  updatePlayedTimeAtom
+  updatePlayedTimeAtom,
+  updatePlayingIdAtom
 } from './playerAtom'
 
 export {
+  updatePlayingIdAtom,
+  playingIdAtom,
   podcastRssAtom,
   episodesAtom,
-  initPlayerAtom,
   playerAtom,
   updatePlayerAtom,
   togglePlayPauseAtom,

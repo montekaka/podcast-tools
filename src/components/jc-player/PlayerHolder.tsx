@@ -1,15 +1,18 @@
 import {useAtom} from "jotai"
 import ReactPlayer from 'react-player/lazy'
-import { playerAtom, episodesAtom, updatePlayerAtom} from '../../jotai'
+import { playerAtom, episodesAtom, updatePlayerAtom, updatePlayingIdAtom, playingIdAtom} from '../../jotai'
 
 const PlayerHolder = () => {
   const [playerState] = useAtom(playerAtom);
   const [episodes] = useAtom(episodesAtom);
   const [_, updatePlayer] = useAtom(updatePlayerAtom);
-  
+  const [playerId] = useAtom(playingIdAtom)
+  const [, updatePlayingId] = useAtom(updatePlayingIdAtom);
 
-  if(playerState.playingId >= 0 && episodes.length > 0) {
-    const { audioUrl } = episodes[playerState.playingId];
+  // console.log(playerId)
+
+  if(playerId >= 0 && episodes.length > 0) {
+    const { audioUrl } = episodes[playerId];
 
     return (
       <ReactPlayer 
@@ -36,16 +39,17 @@ const PlayerHolder = () => {
           console.log('can not load', err)
         }}   
         onEnded={() => {
-          const idx = playerState.playingId + 1;
+          const idx = playerId+ 1;
           if(idx < episodes.length) {
             // go to the next episode
             updatePlayer({
-              playingId: idx, 
               durationSeconds: 0,
               playedSeconds: 0,
               playing: true, 
               onReady: false
             })
+
+            updatePlayingId(idx);
           }
         }}     
         playing={playerState.playing}     

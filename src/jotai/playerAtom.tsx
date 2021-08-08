@@ -1,9 +1,9 @@
-import {atom, WritableAtom} from "jotai"
+import {atom} from "jotai"
 import { Player } from "../screens"
-import {episodesAtom} from './podcastAtom'
+import {episodesAtom, podcastRssAtom} from './podcastAtom'
 
 type Player = {
-  playingId: number;
+  // playingId: number;
   durationSeconds: number;
   playedSeconds: number;
   seekSeconds: number;
@@ -14,7 +14,7 @@ type Player = {
 }
 
 export const playerAtom = atom<Player>({
-  playingId: 0,
+  // playingId: 0,
   durationSeconds: 0,
   playedSeconds: 0,
   seekSeconds: 0,
@@ -24,33 +24,10 @@ export const playerAtom = atom<Player>({
   playerRef: null
 })
 
-export const playingIdAtom = atom(-1);
+export const playingIdAtom = atom(0);
 
-export const initPlayerAtom = atom<Player>((get) => {
-  const items = get(episodesAtom);
-  if(items.length > 0) {
-    return {
-      playingId: 0,
-      durationSeconds: 0,
-      playedSeconds: 0,
-      seekSeconds: 0,
-      onSeeking: false,
-      onReady: false,
-      playing: false,
-      playerRef: null
-    }
-  } else {
-    return {
-      playingId: -1,
-      durationSeconds: 0,
-      playedSeconds: 0,
-      seekSeconds: 0,
-      onSeeking: false,
-      onReady: false,
-      playing: false,
-      playerRef: null
-    };
-  }
+export const updatePlayingIdAtom = atom((get) => get(playingIdAtom), (_get, set, id:number) => {
+  set(playingIdAtom, id);
 })
 
 export const updatePlayerAtom = atom(
