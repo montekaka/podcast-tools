@@ -1,8 +1,13 @@
+import {episodesAtom, playingIdAtom} from '../../jotai'
+import {useAtom} from "jotai"
+
 const Metas = (props: any) => {
+  const {podcastTitle, title} = props;
+
   return (
     <div className="metas">
-      <div className="subtitle">name - date</div>
-      <div className="title">We finally hired developers 🎉 Plus, our new sales pipeline (Ep. 39)</div>
+      <div className="subtitle">{podcastTitle}</div>
+      <div className="title">{title}</div>
       {props.children}
     </div>
   )

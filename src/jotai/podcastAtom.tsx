@@ -1,4 +1,4 @@
-import {atom, useAtom} from "jotai"
+import {atom} from "jotai"
 import Parser from 'rss-parser';
 import { playingIdAtom } from "./playerAtom";
 
