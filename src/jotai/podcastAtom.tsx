@@ -1,6 +1,6 @@
-import {atom} from "jotai"
+import {atom, useAtom} from "jotai"
 import Parser from 'rss-parser';
-import { playerAtom } from "./playerAtom";
+import { playingIdAtom } from "./playerAtom";
 
 const parser: Parser = new Parser({
   customFields: {
@@ -22,6 +22,13 @@ export interface Episode {
   chaptersUrl?: string;
   podcastTitle: string;
   link: string;
+}
+
+export interface Chapter {
+  title: string;
+  startTime: number;
+  img?: string;
+  url? : string;
 }
 
 export const podcastRssAtom = atom<string>("");
@@ -68,3 +75,23 @@ export const episodesAtom = atom<Episode[]>(async (get) => {
     return [];
   }
 });
+
+export const chaptersAtom = atom<Chapter[]>(async (get) => {
+  const playingId = get(playingIdAtom);
+  const episodes = get(episodesAtom);
+  if(playingId >= 0 && episodes.length > 0 && episodes[playingId].chaptersUrl) {
+    const url = episodes[playingId].chaptersUrl;
+    try {
+      const response = await fetch(url!)
+      const data = await response.json();
+      // console.log(data)
+      if(data.chapters && data.chapters.length > 0) {
+        return data.chapters;
+      }
+    } catch (err) {
+      return [];
+    }
+  } else {
+    return [];
+  }
+})

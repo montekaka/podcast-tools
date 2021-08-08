@@ -1,6 +1,7 @@
 import {
   podcastRssAtom, 
   episodesAtom,
+  chaptersAtom,
 } from './podcastAtom'
 import {
   playingIdAtom,
@@ -12,6 +13,7 @@ import {
 } from './playerAtom'
 
 export {
+  chaptersAtom,
   updatePlayingIdAtom,
   playingIdAtom,
   podcastRssAtom,
