@@ -17,7 +17,7 @@ const PlayerHolder = () => {
     return (
       <ReactPlayer 
         url={audioUrl} 
-        controls={true}
+        controls={false}
         height={"0"}
         width={"0"}    
         onProgress={(res) => {
