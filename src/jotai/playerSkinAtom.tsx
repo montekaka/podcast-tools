@@ -37,17 +37,7 @@ export const playerSkinOptions = atom([
   {label: "Chapter text color", id: 'chapterTextColor'},  
 ])
 
-export const selectingColorAtom = atom<string>('primaryBackgroundColor');
-
-export const getSelectingColorAtom = atom<string>((get) => {
-  const colors:any = get(playerSkinAtom);
-  const id = get(selectingColorAtom);
-
-  return colors[id]
-}) 
-
-export const updateColorAtom = atom((get) => get(playerSkinAtom), (_get, set, color) => {
-  const id = _get(selectingColorAtom);
+export const updateColorAtom = atom((get) => get(playerSkinAtom), (_get, set, value:any) => {
   const colors:any = _get(playerSkinAtom);
-  set(playerSkinAtom, {...colors, [id]: color})
+  set(playerSkinAtom, {...colors, ...value})
 })

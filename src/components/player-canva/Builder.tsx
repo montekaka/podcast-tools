@@ -1,15 +1,14 @@
 import {useState} from 'react'
 import {useAtom} from 'jotai'
-import {podcastRssAtom, getSelectingColorAtom, playerSkinOptions, selectingColorAtom, updateColorAtom} from '../../jotai'
-
+import {podcastRssAtom, playerSkinOptions, updateColorAtom, playerSkinAtom} from '../../jotai'
+import ColorPicker from './ColorPicker'
 
 const Builder = () => {
   const [rssFeed, setRssFeed] = useState('');  
   const [_, rssFeedSet] = useAtom(podcastRssAtom);  
   const [playerColorOptions] = useAtom(playerSkinOptions);
-  const [selectingColorId, selectingColorIdSet] = useAtom(selectingColorAtom);
-  const [selectedColor] = useAtom(getSelectingColorAtom)
   const [, updateColor] = useAtom(updateColorAtom)
+  const [playerSkin] : any = useAtom(playerSkinAtom);
 
   const handleRSSFeed = () => {
     if(rssFeed.length > 0) {
@@ -17,16 +16,17 @@ const Builder = () => {
     }    
   }
 
-  const handleOptionClick = (id:string) => {
-    // const skin = playerColorOptions[id]['id'];   
-    // const hexColor = playerSkin.chapterBackgroundColor ? playerSkin.chapterBackgroundColor : "#ffffff";
-    // setColor(hexColor)
-    selectingColorIdSet(id)
+  const handleColorChange = (x:any) => {
+    updateColor(x)
   }
 
-  const handleColorChange = (color: string) => {
-    updateColor(color);
-  }
+  // const handleOptionClick = (id:string) => {
+  //   selectingColorIdSet(id)
+  // }
+
+  // const handleColorChange = (color: string) => {
+  //   updateColor(color);
+  // }
 
 
   return (
@@ -44,11 +44,14 @@ const Builder = () => {
         <div>
           {
             playerColorOptions.map((item, idx) => 
-              <div key={item.id}
-                onClick={() => {
-                  handleOptionClick(item.id)
-                }}
-              >{item.label}</div>
+              <div key={item.id}>
+                <div>{item.label}</div>
+                <ColorPicker 
+                  color={playerSkin[item.id]} 
+                  handleColorChange={handleColorChange}
+                  id={item.id}
+                />
+              </div>
             )
           }
         </div>        

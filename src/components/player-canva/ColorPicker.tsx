@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { SketchPicker } from 'react-color'
+
 
 const swatch = {
   padding: '5px',
@@ -33,16 +35,15 @@ const ColorPickerControl = (props:any) => {
 }
 
 const ColorPicker = (props: any) => {
-  const {color, handleColorChange, displayColorPicker, setDisplayColorPicker} = props;
-  
+  const {color, handleColorChange, id} = props;
+  const [displayColorPicker, setDisplayColorPicker] = useState(false);  
+
   const handleClick = () => {    
     setDisplayColorPicker(!displayColorPicker);
   }    
 
   const handleChange = (event: any) => {
-    const {selectedColor} = event;
-    // handleColorChange(selectedColor.hex);
-    handleColorChange(selectedColor.hex)
+    handleColorChange({[id]: event.hex})
   }
 
   return (

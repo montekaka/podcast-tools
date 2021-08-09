@@ -15,13 +15,10 @@ import {
 import {
   playerSkinAtom,
   playerSkinOptions,  
-  selectingColorAtom,
-  getSelectingColorAtom,
   updateColorAtom
 } from './playerSkinAtom'
 
 export {
-  selectingColorAtom,
   chaptersAtom,
   playerSkinOptions,
   updatePlayingIdAtom,
@@ -33,6 +30,5 @@ export {
   togglePlayPauseAtom,
   updatePlayedTimeAtom,
   playerSkinAtom,
-  getSelectingColorAtom,
   updateColorAtom
 }
