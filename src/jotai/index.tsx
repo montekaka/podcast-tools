@@ -14,10 +14,16 @@ import {
 
 import {
   playerSkinAtom,
+  playerSkinOptions,  
+  selectingColorAtom,
+  getSelectingColorAtom,
+  updateColorAtom
 } from './playerSkinAtom'
 
 export {
+  selectingColorAtom,
   chaptersAtom,
+  playerSkinOptions,
   updatePlayingIdAtom,
   playingIdAtom,
   podcastRssAtom,
@@ -26,5 +32,7 @@ export {
   updatePlayerAtom,
   togglePlayPauseAtom,
   updatePlayedTimeAtom,
-  playerSkinAtom
+  playerSkinAtom,
+  getSelectingColorAtom,
+  updateColorAtom
 }

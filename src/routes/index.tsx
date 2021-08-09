@@ -6,12 +6,12 @@ import {
   Link
 } from "react-router-dom";
 
-import {Player} from '../screens'
+import {Player, WidgetBuilder} from '../screens'
 
 const MainRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Player} />
+      <Route exact path="/" component={WidgetBuilder} />
     </Switch>
   )
 }

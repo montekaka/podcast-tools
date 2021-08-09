@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import { Provider as JotaiProvider} from 'jotai'
 import reportWebVitals from './reportWebVitals';
+import {Loading} from '../src/components'
 
 const history = createBrowserHistory();
 
@@ -14,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router history={history} ref={() => {setNavigator(history)} }>
       <JotaiProvider>
-        <Suspense fallback={<h2>Loading...</h2>}>
+        <Suspense fallback={<Loading/>}>
         <App />
         </Suspense>
       </JotaiProvider>

@@ -6,10 +6,10 @@ export interface PlayerSkin {
   primaryTextColor: string;
   progressBarBackgroundColor: string;
   progressBarFilledColor: string;
-  playlistBackgroundColor?: string;
-  playlistTextColor?: string;
+  playlistBackgroundColor: string;
+  playlistTextColor: string;
   chapterBackgroundColor?: string;
-  chapterTextColor?: string;
+  chapterTextColor: string;
 }
 
 export const playerSkinAtom = atom<PlayerSkin>({
@@ -25,7 +25,29 @@ export const playerSkinAtom = atom<PlayerSkin>({
   chapterTextColor:  "#f7f8f9"
 });
 
-// export const getPlaylistColorAtom = atom((get) => {
-//   const {primaryBackgroundColor} = get(playerSkinAtom);
-//   return chroma(primaryBackgroundColor);
-// }) 
+export const playerSkinOptions = atom([
+  {label: "Background color", id: 'primaryBackgroundColor'},
+  {label: "Button color", id: 'primaryButtonColor'},
+  {label: "Text color", id: 'primaryTextColor'},
+  {label: "Time slider filled color", id: 'progressBarFilledColor'},
+  {label: "Time slider color", id: 'progressBarBackgroundColor'},
+  {label: "Playlist background color", id: 'playlistBackgroundColor'},
+  {label: "Playlist text color", id: 'playlistTextColor'},
+  {label: "Chapter background color", id: 'chapterBackgroundColor'},
+  {label: "Chapter text color", id: 'chapterTextColor'},  
+])
+
+export const selectingColorAtom = atom<string>('primaryBackgroundColor');
+
+export const getSelectingColorAtom = atom<string>((get) => {
+  const colors:any = get(playerSkinAtom);
+  const id = get(selectingColorAtom);
+
+  return colors[id]
+}) 
+
+export const updateColorAtom = atom((get) => get(playerSkinAtom), (_get, set, color) => {
+  const id = _get(selectingColorAtom);
+  const colors:any = _get(playerSkinAtom);
+  set(playerSkinAtom, {...colors, [id]: color})
+})
